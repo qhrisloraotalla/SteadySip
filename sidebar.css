@@ -1,0 +1,87 @@
+body {
+margin-left: 0;
+font-family: Arial, sans-serif;
+background: #f2f2f2;
+padding-top: 50px;
+padding-right: 100px;
+padding-bottom: 100px;
+padding-left: 200px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px; /* minimized width */
+  height: 100vh;
+  background-color: #c49a6c;
+  overflow: hidden;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.15);
+  transition: width 0.3s ease;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* space between links and bottom logo */
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  opacity: 0.95;
+}
+
+.sidebar:hover {
+  width: 220px;
+  align-items: flex-start;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* User name */
+.sidebar-name {
+  color: #3e2a1f;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.sidebar:hover .sidebar-name {
+  opacity: 1;
+  padding-left: 10px;
+}
+
+/* Top links container */
+.sidebar a.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 90%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.3s, justify-content 0.3s;
+  text-decoration: none;
+  color: #3e2a1f;
+}
+
+.sidebar a.sidebar-item img {
+  width: 24px;
+  height: 24px;
+  transition: margin 0.3s;
+}
+
+/* Only icon in minimized state */
+.sidebar:not(:hover) a.sidebar-item {
+  justify-content: center;
+}
+
+.sidebar:not(:hover) a.sidebar-item span {
+  display: none;
+}
+
+/* Logo at the bottom */
+.sidebar-logo {
+  width: 40px; /* adjust size as needed */
+  height: auto;
+}

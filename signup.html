@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <div class="form-wrapper">
+    <form id="signupForm">
+      <h2>Sign Up</h2>
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="text" name="phone" placeholder="Phone (e.g. 09123456789)" required>
+      <select name="role" required>
+        <option value="">Select Role</option>
+        <option value="admin">Admin</option> 
+        <option value="Cashier">Cashier</option>
+        <option value="Owner">Owner</option>
+      </select>
+      <button type="submit">Next</button>
+    </form>
+
+    <form id="verifyUserPhoneForm" style="display:none;">
+      <h2>Verify Your Phone</h2>
+      <input type="text" id="userOtp" placeholder="Enter OTP sent to your phone" required>
+      <button type="submit">Verify</button>
+    </form>
+
+    <form id="otpForm" style="display:none;">
+      <h2>Owner Approval</h2>
+      <input type="text" id="ownerOtp" placeholder="Enter OTP from Owner" required>
+      <button type="submit">Approve</button>
+    </form>
+  </div>
+
+  <script>
+    const signupForm = document.getElementById('signupForm');
+    const verifyUserPhoneForm = document.getElementById('verifyUserPhoneForm');
+    const otpForm = document.getElementById('otpForm');
+
+    let tempUserData = null;
+
+    signupForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const formData = new FormData(signupForm);
+      const res = await fetch('reg-request-user-otp.php', { method: 'POST', body: formData });
+      const data = await res.json();
+      if (data.success) {
+        alert('OTP sent to your phone.');
+        signupForm.style.display = 'none';
+        verifyUserPhoneForm.style.display = 'block';
+        tempUserData = Object.fromEntries(formData);
+      } else {
+        alert(data.message);
+      }
+    });
+
+    verifyUserPhoneForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const otp = document.getElementById('userOtp').value;
+      const res = await fetch('verify-user-otp.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ otp, ...tempUserData })
+      });
+      const data = await res.json();
+      if (data.success) {
+        alert('User phone verified. OTP sent to owner for approval.');
+        verifyUserPhoneForm.style.display = 'none';
+        otpForm.style.display = 'block';
+      } else {
+        alert(data.message);
+      }
+    });
+
+    otpForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const otp = document.getElementById('ownerOtp').value;
+      const res = await fetch('verify-otp-signup.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ otp, ...tempUserData })
+      });
+      const data = await res.json();
+      alert(data.message);
+      if (data.success) location.href = 'login.php';
+    });
+
+  </script>
+</body>
+</html>
