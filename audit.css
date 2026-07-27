@@ -1,0 +1,159 @@
+/* ============================================
+   GENERAL PAGE STYLE
+============================================ */
+body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: #f4e1c1; /* light brown background */
+    color: #3e2a1f;
+    margin: 0;
+}
+
+/* ============================================
+   LINKS
+============================================ */
+a {
+    color: #5a3e2b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   HEADERS
+============================================ */
+h2, h3, h4 {
+    color: #5a3e2b;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* ============================================
+   INPUTS
+============================================ */
+input[type="text"],
+input[type="number"],
+select {
+    width: 20%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #d2b48c;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+    background: #fff7e6;
+    color: #3e2a1f;
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+button {
+    background: #b8865f; /* medium brown */
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #a76f48;
+}
+
+/* ============================================
+   QUEUE TABLE / LIST
+============================================ */
+.queue-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff7e6;
+}
+
+.queue-table th,
+.queue-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #d2b48c;
+}
+
+.queue-table th {
+    background: #c49a6c; /* coffee brown */
+    color: white;
+    font-weight: bold;
+}
+
+.queue-table tr:nth-child(even) {
+    background: #fff3e0;
+}
+
+.queue-table tr:nth-child(odd) {
+    background: #fbead4;
+}
+
+.form-div {
+    background: #fff7e6; /* very light brown/cream */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   SIDEBAR
+============================================ */
+/* .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70px; 
+    height: 100vh;
+    background-color: #c49a6c;
+    transition: width 0.25s ease-in-out;
+    overflow: hidden;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+.sidebar:hover {
+    width: 220px; 
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 20px 10px;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.sidebar li:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+.sidebar i {
+    font-size: 20px;
+    color: #3e2a1f;
+}
+
+.sidebar span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #3e2a1f;
+    white-space: nowrap;
+} */
