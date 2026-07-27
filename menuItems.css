@@ -1,0 +1,177 @@
+/* Body and general styles */
+body {
+    background: #f4e1c1; /* light brown background */
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Menu Images */
+.menu-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Menu Controls */
+.menu-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#search {
+    padding: 8px 12px;
+    width: 220px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tab {
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: none;
+    color: #3e2a1f;
+    background: #eee;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tab.active {
+    background: #c9966b;    
+    color: #fff;
+}
+
+/* Menu Grid */
+.menu-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.menu-tile {
+    width: 250px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu-tile:hover {
+    transform: scale(1.03);
+    background: #f9f9f9;
+}
+
+.menu-tile h3 {
+    margin: 0 0 5px;
+}
+
+.price {
+    font-weight: bold;
+    color: #c9966b;    
+}
+
+.description {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.add-btn {
+    margin-top: 10px;
+    padding: 8px 12px;
+    width: 100%;
+    border: none;
+    background: #0f7a49;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background: #a27956;    
+}
+
+
+/* ===== POPUP MODAL ===== */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 90%;
+    background: #fff3e0;         /* Light cream popup */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.popup.show {
+    display: block;
+}
+
+.popup h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #3e2a1f;
+}
+
+.popup button.close-popup {
+    background: #c9966b;         /* medium brown close button */
+    float: right;
+    margin-top: -50px;
+    margin-right: -20px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* === General Buttons === */
+button {
+    background-color: #c9966b;    /* medium brown button */
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #b07d50;    /* darker brown hover */
+}
+
+#ingredient-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#ingredient-table th, #ingredient-table td {
+    padding: 8px;
+    border: 1px solid #d0b99c;
+    text-align: left;
+}
+
+#ingredient-table th {
+    background-color: #f0e1d4;
+}
+
+#ingredient-table input, 
+#ingredient-table select {
+    width: 100%;
+    box-sizing: border-box;
+}

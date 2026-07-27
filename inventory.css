@@ -1,0 +1,415 @@
+/* === Page Background === */
+body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: #f4e1c1; /* light brown background */
+    /* margin: 0;
+    padding: 20px; */
+    color: #3e2a1f;
+}
+
+/* ===== LINKS ===== */
+a {
+    color: #5a3e2b; /* dark brown */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* === Sidebar Layout === */
+.sidebar {
+    background-color: #c49a6c;   /* coffee/light brown sidebar */
+    color: #3e2a1f;              /* Dark text */
+}
+
+/* ===== POPUP MODAL ===== */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 90%;
+    background: #fff3e0;         /* Light cream popup */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    border: 2px solid #d0b99c;
+    z-index: 1000;
+}
+
+.popup.show {
+    display: block;
+}
+
+.popup h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #3e2a1f;
+}
+
+.popup button.close-popup {
+    background: #c9966b;         /* medium brown close button */
+    float: right;
+    margin-top: -50px;
+    margin-right: -20px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.popup button.close-popup:hover {
+    background: #b07d50;         /* darker brown hover */
+}
+
+/* === Inputs and Selects === */
+input, select {
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d0b99c;   /* soft brown border */
+    border-radius: 6px;
+    background-color: #fff8f0;    /* light cream input background */
+    color: #3e2a1f;
+}
+
+input[type="radio"] {
+    width: auto;
+    display: inline-block;
+    margin-right: 5px;
+}
+.inputs{
+    display: flex;
+    gap: 12px;
+}
+
+/* === General Buttons === */
+button {
+    background-color: #c9966b;    /* medium brown button */
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #b07d50;    /* darker brown hover */
+}
+
+/* Animation */
+@keyframes popupFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.form-div {
+    background: #fff7e6; /* very light brown/cream */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Inventory / Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+    background-color: #fff3e0;    /* light cream table background */
+}
+
+table th, table td {
+    padding: 10px;
+    border-bottom: 1px solid #d0b99c;  /* soft brown border */
+    color: #3e2a1f;
+}
+
+/* ===== BUTTON CONTAINER ===== */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* ===== MAIN BUTTONS ===== */
+.button-container button,
+.button-container a {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: #c9966b;     /* medium brown button */
+    transition: 0.3s;
+}
+
+.button-container button:hover,
+.button-container a:hover {
+    background: #b07d50;     /* darker brown hover */
+}
+
+/* ===== USER POPUP IN SIDEBAR ===== */
+.sidebar-user {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    transition: background 0.2s;
+}
+
+.user-info:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.username {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* User popup content */
+.user-popup {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: #fff3e0;       /* light cream popup */
+    color: #3e2a1f;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: absolute;
+    bottom: 60px;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+/* Show popup on hover */
+.sidebar-user:hover .user-popup {
+    display: flex;
+}
+
+/* Popup buttons */
+.user-popup button {
+    width: 80%;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    background: #c9966b;       /* medium brown button */
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.user-popup button:hover {
+    background: #b07d50;       /* darker brown hover */
+}
+
+/* Custom Alert Styles */
+.custom-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.custom-alert.show {
+    display: flex;
+}
+
+.custom-alert-content {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+}
+
+.custom-alert-content p {
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.custom-alert-content button {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Success checkmark */
+.checkmark {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    display: none; /* toggle to block when showing success */
+    box-sizing: border-box;
+    border: 3px solid #4CAF50;
+    background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 52'><path fill='none' stroke='%234CAF50' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' d='M14 27l7 7 17-17'/></svg>") center/28px no-repeat;
+}
+
+/* Error cross */
+.cross {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+    display: none;
+}
+
+.cross-line {
+    position: absolute;
+    height: 3px;
+    width: 50px;
+    background: #F44336;
+    top: 24px;
+    left: 0;
+    transform-origin: center;
+}
+
+.cross-line1 { transform: rotate(45deg) scaleX(0); animation: drawCross 0.5s forwards; }
+.cross-line2 { transform: rotate(-45deg) scaleX(0); animation: drawCross 0.5s forwards 0.25s; }
+
+@keyframes drawCross {
+    to { transform: rotate(0deg) scaleX(1); }
+}
+
+/* Entire dark background overlay */
+#customAlert {
+    display: none;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999999 !important; /* force top layer */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal box */
+#customAlert .custom-alert-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+    animation: fadeIn .2s ease-out;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+
+/* Container for stacking alerts */
+.floating-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 320px;
+    max-width: 90%;
+    z-index: 9999;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-left: 6px solid #ff9900; /* Highlight bar */
+    transition: all 0.4s ease;
+    animation: slideIn 0.5s ease forwards;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* When closing (Bootstrap adds this) */
+.floating-alert.fade {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+/* Styling for titles and text */
+.floating-alert h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.floating-alert span {
+    font-size: 14px;
+}
+
+.floating-alert hr {
+    margin: 8px 0;
+}
+
+/* Color styles for alert sections */
+.floating-alert .text-danger {
+    color: #d9534f !important;
+}
+
+.floating-alert .text-warning {
+    color: #f0ad4e !important;
+}
+
+/* Close button styling */
+.floating-alert .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

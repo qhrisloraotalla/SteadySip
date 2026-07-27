@@ -1,0 +1,185 @@
+/* ============================================
+   GENERAL PAGE STYLE
+============================================ */
+body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    /* background: url('background2.png') center/cover no-repeat fixed; */
+    background: #f4e1c1; /* light brown background */
+    /* margin: 0;
+    padding: 0; */
+}
+
+/* ============================================
+   LINKS
+============================================ */
+a {
+    color: #5a3e2b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   HEADERS
+============================================ */
+h2, h3, h4 {
+    color: #5a3e2b; /* dark brown */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* ============================================
+   QUEUE TABLE / LIST
+============================================ */
+.queue-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.queue-table th,
+.queue-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #d2b48c;
+    color: #3e2a1f;
+}
+
+.queue-table th {
+    background: #c49a6c; /* coffee brown */
+    color: white;
+    font-weight: bold;
+}
+
+.queue-table tr:nth-child(even) {
+    background: #fff3e0;
+}
+
+.queue-table tr:nth-child(odd) {
+    background: #fbead4;
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+button {
+    background: #b8865f; /* medium brown */
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease-in-out;
+}
+
+button:hover {
+    background: #a76f48;
+}
+
+/* ============================================
+   SIDEBAR
+============================================ */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70px; /* collapsed width */
+    height: 100vh;
+    background: #c49a6c; /* medium/light brown */
+    transition: width 0.25s ease-in-out;
+    overflow: hidden;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+.sidebar:hover {
+    width: 220px; /* expanded width */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 20px 10px;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.sidebar li:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.sidebar i {
+    font-size: 20px;
+    color: #3e2a1f;
+}
+
+.sidebar span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #3e2a1f;
+    white-space: nowrap;
+}
+
+
+/* ===== POPUP MODAL ===== */
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 280px;
+    text-align: center;
+}
+
+
+.popup.show {
+    display: block;
+}
+
+.popup h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #3e2a1f;
+}
+
+.popup button.close-popup {
+    background: #c9966b;         /* medium brown close button */
+    float: right;
+    margin-top: -50px;
+    margin-right: -20px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.popup button.close-popup:hover {
+    background: #b07d50;         /* darker brown hover */
+}

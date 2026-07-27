@@ -1,7 +1,10 @@
 <?php
 function sendSMS($number, $message) {
 
-    $api_token = "1406cf33178c2fd93985e85ad826f9c1d5a9e60b";
+    $api_token = getenv('IPROG_SMS_API_TOKEN');
+    if (!$api_token) {
+        return false;
+    }
     $iprog_url = "https://sms.iprogtech.com/api/v1/sms_messages";
 
     // Format request exactly like OTP

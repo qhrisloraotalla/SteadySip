@@ -32,6 +32,13 @@ if (!$user) {
   exit;
 }
 
+$api_token = getenv('IPROG_SMS_API_TOKEN');
+if (!$api_token) {
+  http_response_code(500);
+  echo json_encode(['error' => 'SMS service is not configured']);
+  exit;
+}
+
 // Generate OTP (6-digit) + expiry
 $otp = random_int(100000, 999999);
 $expires_at = (new DateTime('+5 minutes'))->format('Y-m-d H:i:s');
@@ -43,7 +50,6 @@ $insert->bind_param("isss", $user['id'], $user['phone'], $otp_hash, $expires_at)
 $insert->execute();
 
 // Send via IPROG SMS
-$api_token = '1406cf33178c2fd93985e85ad826f9c1d5a9e60b';
 $iprog_url = 'https://sms.iprogtech.com/api/v1/sms_messages';
 $message = "Your password reset code is $otp. It expires in 5 minutes.";
 
